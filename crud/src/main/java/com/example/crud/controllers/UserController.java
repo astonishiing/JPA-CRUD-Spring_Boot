@@ -1,16 +1,37 @@
 package com.example.crud.controllers;
 
+import com.example.crud.entity.User;
+import com.example.crud.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/v1/users")
 public class UserController {
 
-    @GetMapping
-    public ResponseEntity getAllProduct(){
-        return ResponseEntity.ok("deu ok");
+    private UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody CreateUserDto createUserDto){
+        var userId = userService.createUser(createUserDto);
+
+        return ResponseEntity.created(URI.create("/v1/users" + userId.toString())).build();
+    }
+
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable("userId") String userId){
+        var user = userService.getUserById(userId);
+        if(user.isPresent()){
+            return ResponseEntity.ok(user.get());
+        }else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
