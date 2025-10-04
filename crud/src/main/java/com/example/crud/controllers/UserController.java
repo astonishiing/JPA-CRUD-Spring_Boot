@@ -2,10 +2,12 @@ package com.example.crud.controllers;
 
 import com.example.crud.entity.User;
 import com.example.crud.service.UserService;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/users")
@@ -33,5 +35,16 @@ public class UserController {
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping
+    public ResponseEntity<List<User>> listUsers(){
+        var user = userService.listUser();
+        return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/")
+    public ResponseEntity<Void> deleteById(@PathVariable("userId") String userId){
+        userService.deleteById(userId);
+        return ResponseEntity.noContent().build();
     }
 }
