@@ -57,9 +57,10 @@ public class UserService {
             if(updateUserDto.username() != null){
                 user.setUsername(updateUserDto.username());
             }
-            if(updateUserDto.username() != null){
-                user.setUsername(updateUserDto.username());
+            if(updateUserDto.password() != null){
+                user.setPassword(updateUserDto.password());
             }
+            userRepository.save(user);
         }
     }
 
