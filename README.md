@@ -51,5 +51,5 @@ O que o usuário pode fazer?
 ## Running
 ### 1 Clonar o repositório do Github
 ```
-git clone
+git clone https://github.com/astonishiing/JPA-CRUD-Spring_Boot.git
 ```
