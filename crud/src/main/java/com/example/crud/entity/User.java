@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name= "tb_users")
+@Table(name = "tb_users")
 public class User {
 
     @Id
