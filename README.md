@@ -53,3 +53,9 @@ O que o usuário pode fazer?
 ```
 git clone https://github.com/astonishiing/JPA-CRUD-Spring_Boot.git
 ```
+
+### 2 Configurando o banco de dados
+
+1. Abra o Docker
+2. Abra a pasta a qual você clonou o repositorio diretamente no Git
+Execute o comando compose
