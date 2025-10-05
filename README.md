@@ -63,7 +63,9 @@ Execute o comando:
 docker-compose up
 ```
 
-Caso ocorra error, repita o procedimento novamente desde o inicio (Feche o Docker e o git e repita o procedimento) e utilize o comando:
+Caso ocorra error, verifique se está na pasta do repositório que foi clonado; 
+
+Repita o procedimento novamente desde o inicio (Feche o Docker e o git e repita o procedimento) e utilize o comando:
 
 ```
 docker-compose up -d
