@@ -58,4 +58,41 @@ git clone https://github.com/astonishiing/JPA-CRUD-Spring_Boot.git
 
 1. Abra o Docker
 2. Abra a pasta a qual você clonou o repositorio diretamente no Git
-Execute o comando compose
+Execute o comando:
+```
+docker-compose up
+```
+
+Caso ocorra error, repita o procedimento novamente desde o inicio (Feche o Docker e o git e repita o procedimento) e utilize o comando:
+
+```
+docker-compose up -d
+```
+
+3. Compile o projeto
+
+No terminal irá aparecer:
+
+```
+Hibernate: create table tb_users...
+```
+Se aparecer isso o seu banco de dados foi criado e também as suas colunas
+
+### 3 Endpoints da API
+
+- Abra o Insomnia ou Postman para fazer as requisições
+
+| Método | Endpoint | Descrição | Corpo da Requisição (JSON) |
+| :---: | :--- | :--- | :--- |
+| **GET** | `/v1/users` | Lista todos os itens cadastrados. | *(Nenhum)* |
+| **GET** | `/v1/users/{id}` | Busca um item específico pelo ID. | *(Nenhum)* |
+| **POST** | `/v1/users` | **Cria (Cadastra)** um novo item. | `{"nome": "...", "descricao": "..."}` |
+| **PUT** | `/v1/users/{id}` | **Atualiza** o item com o ID especificado. | `{"nome": "...", "descricao": "..."}` |
+| **DELETE** | `/v1/users/{id}` | **Exclui** o item com o ID especificado. | *(Nenhum)* |
+
+## References
+[Documentação - MySQL Data (Spring)](https://spring.io/guides/gs/accessing-data-mysql)
+
+[Documentação - Docker Compose](https://docs.docker.com/compose)
+
+[Documentação - Spring Boot](https://spring.io/projects/spring-boot)
