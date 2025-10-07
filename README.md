@@ -21,6 +21,7 @@ Sendo uma aplicação web completa para expor dados de um dado por meio da API R
 - Spring Boot (3.5.6)
 - Spring Data JPA
 - Spring Web
+- MySQL Driver
 - Maven
 - Insomnia ou Postman (Aplicativos que interagem com serviçoes da API, para criar e enviar requisições HTTP)
 
