@@ -9,7 +9,7 @@
 
 <h2>Lista de Usuários</h2>
 
-<a href="/ui/users/new" class="btn btn-primary mb-3">Novo Usuário</a>
+<a href="/new" class="btn btn-primary mb-3">Novo Usuário</a>
 
 <table class="table table-bordered">
     <thead>
@@ -26,8 +26,8 @@
         <td th:text="${u.name}"></td>
         <td th:text="${u.email}"></td>
         <td>
-            <a th:href="@{'/ui/users/edit/' + ${u.userId}}" class="btn btn-warning btn-sm">Editar</a>
-            <a th:href="@{'/ui/users/delete/' + ${u.userId}}" class="btn btn-danger btn-sm">Excluir</a>
+            <a th:href="@{'/edit/' + ${u.userId}}" class="btn btn-warning btn-sm">Editar</a>
+            <a th:href="@{'/delete/' + ${u.userId}}" class="btn btn-danger btn-sm">Excluir</a>
         </td>
     </tr>
     </tbody>
