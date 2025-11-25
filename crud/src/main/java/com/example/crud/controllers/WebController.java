@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/ui/users")
 public class WebController{
     private final UserWebService userWebService;
 
@@ -17,8 +16,8 @@ public class WebController{
         this.userWebService = userWebService;
     }
 
-    @GetMapping
-    public String listUsers(Model model){
+    @GetMapping("/")
+    public String home(Model model){
         model.addAttribute("users", userWebService.getAll());
         return "index";
     }
@@ -32,7 +31,7 @@ public class WebController{
     @PostMapping("/save")
     public String saveUser(@ModelAttribute User user){
         userWebService.save(user);
-        return "redirect:/ui/users";
+        return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
@@ -44,7 +43,7 @@ public class WebController{
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable UUID id){
         userWebService.delete(id);
-        return "redirect://users";
+        return "redirect:/";
     }
 
 }
