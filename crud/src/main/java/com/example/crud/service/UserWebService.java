@@ -2,10 +2,12 @@ package com.example.crud.service;
 
 import com.example.crud.entity.User;
 import com.example.crud.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class UserWebService {
     private final UserRepository userRepository;
 
