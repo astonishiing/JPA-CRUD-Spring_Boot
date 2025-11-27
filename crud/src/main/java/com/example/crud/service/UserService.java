@@ -4,7 +4,6 @@ import com.example.crud.controllers.CreateUserDto;
 import com.example.crud.controllers.UpdateUserDto;
 import com.example.crud.entity.User;
 import com.example.crud.repository.UserRepository;
-import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
