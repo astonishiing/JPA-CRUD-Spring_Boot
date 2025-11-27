@@ -23,7 +23,8 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody CreateUserDto createUserDto){
         var userId = userService.createUser(createUserDto);
 
-        return ResponseEntity.created(URI.create("/v1/users" + userId.toString())).build();
+        return ResponseEntity.created(URI.create("/v1/users/" + userId)).build();
+
     }
 
 
@@ -50,8 +51,8 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/")
-    public ResponseEntity<Void> deleteById(@PathVariable("userId") String userId){
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Void> deleteById(@PathVariable("userId") String userId) {
         userService.deleteById(userId);
         return ResponseEntity.noContent().build();
     }
