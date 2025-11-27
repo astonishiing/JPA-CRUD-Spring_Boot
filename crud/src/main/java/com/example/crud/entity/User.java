@@ -33,14 +33,20 @@ public class User {
     public User() {
     }
 
-    public User(UUID userId, String username, String email, String password, Instant creationTimeStamp, Instant updateTimeStamp) {
-        this.userId = userId;
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.creationTimeStamp = creationTimeStamp;
-        this.updateTimeStamp = updateTimeStamp;
     }
+
+//    public User(UUID userId, String username, String email, String password, Instant creationTimeStamp, Instant updateTimeStamp) {
+//        this.userId = userId;
+//        this.username = username;
+//        this.email = email;
+//        this.password = password;
+//        this.creationTimeStamp = creationTimeStamp;
+//        this.updateTimeStamp = updateTimeStamp;
+//    }
 
     public UUID getUserId() {
         return userId;
