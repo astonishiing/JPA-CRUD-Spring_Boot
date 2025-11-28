@@ -21,7 +21,7 @@ Sendo uma aplicação web completa para expor dados de um dado por meio da API R
 - Spring Boot (3.5.6)
 - Spring Data JPA
 - Spring Web
-- H2 
+- H2 Database
 - Maven
 - Insomnia ou Postman (Aplicativos que interagem com serviçoes da API, para criar e enviar requisições HTTP)
 
@@ -99,5 +99,7 @@ Se aparecer isso o seu banco de dados foi criado e também as suas colunas
 [Documentação - Docker Compose](https://docs.docker.com/compose)
 
 [Documentação - Spring Boot](https://spring.io/projects/spring-boot)
+
+[Documentação - Thyleaf](https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html)
 
 Youtube
