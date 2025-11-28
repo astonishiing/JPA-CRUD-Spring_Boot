@@ -21,12 +21,12 @@ Sendo uma aplicação web completa para expor dados de um dado por meio da API R
 - Spring Boot (3.5.6)
 - Spring Data JPA
 - Spring Web
-- MySQL Driver
+- H2 
 - Maven
 - Insomnia ou Postman (Aplicativos que interagem com serviçoes da API, para criar e enviar requisições HTTP)
 
 Banco de Dados
-- MySQL localmente via Docker Compose
+- H2
 
 Gerenciamente de Contêineres
 - Docker
@@ -46,7 +46,7 @@ O que o usuário pode fazer?
 ## Pré-Requisitos
 - Java Development Kit (JDK) - versão 21 ou inferior
 - Uma IDE (Intellij IDEA, Eclipse, VS code)
-- MySQL rodando localmente via Dcoker Compose
+- H2 rodando em memória
 - Insomnia ou Postman: Criar e enviar requisições HTTP
 
 ## Running
