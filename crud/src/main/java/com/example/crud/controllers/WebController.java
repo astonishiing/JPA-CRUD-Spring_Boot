@@ -18,26 +18,22 @@ public class WebController {
         this.userService = userService;
     }
 
-    // LISTAR USUÁRIOS
     @GetMapping
     public String listUsers(Model model) {
         model.addAttribute("users", userService.listUser());
-        return "index"; // templates/index.html
+        return "index";
     }
 
-    // FORM PARA CRIAR USUÁRIO
     @GetMapping("/new")
     public String newUserForm(Model model) {
-        model.addAttribute("user", new User()); // objeto vazio
-        return "form"; // templates/form.html
+        model.addAttribute("user", new User());
+        return "form";
     }
 
-    // SALVAR (CRIAR OU EDITAR)
     @PostMapping("/save")
     public String saveUser(@ModelAttribute User user) {
 
         if (user.getUserId() == null) {
-            // criação — converte entidade para CreateUserDto
             userService.createUser(new CreateUserDto(
                     user.getUsername(),
                     user.getEmail(),
@@ -45,7 +41,6 @@ public class WebController {
             ));
 
         } else {
-            // edição — converte entidade para UpdateUserDto
             userService.updateUserById(
                     user.getUserId().toString(),
                     new UpdateUserDto(
@@ -58,7 +53,6 @@ public class WebController {
         return "redirect:/ui/users";
     }
 
-    // FORM DE EDIÇÃO
     @GetMapping("/edit/{id}")
     public String editUser(@PathVariable UUID id, Model model) {
         var user = userService.getUserById(id.toString());
@@ -71,7 +65,6 @@ public class WebController {
         return "form";
     }
 
-    // EXCLUIR
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable UUID id) {
         userService.deleteById(id.toString());
