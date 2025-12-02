@@ -11,9 +11,7 @@ Sendo uma aplicação web completa para expor dados de um dado por meio da API R
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="40" alt="spring logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="40" alt="docker logo"  />
-  <img width="12" />
+  <img width="12" /> 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg" height="40" alt="insomnia logo"  />
 </p>
 
@@ -27,9 +25,6 @@ Sendo uma aplicação web completa para expor dados de um dado por meio da API R
 
 Banco de Dados
 - H2
-
-Gerenciamente de Contêineres
-- Docker
 
 ### Development Tools
 <p display= "inline-block">
@@ -57,22 +52,7 @@ git clone https://github.com/astonishiing/JPA-CRUD-Spring_Boot.git
 
 ### 2 Configurando o banco de dados
 
-1. Abra o Docker
-2. Abra a pasta a qual você clonou o repositorio diretamente no Git
-Execute o comando:
-```
-docker-compose up
-```
-
-Caso ocorra error, verifique se está na pasta do repositório que foi clonado; 
-
-Repita o procedimento novamente desde o inicio (Feche o Docker e o git e repita o procedimento) e utilize o comando:
-
-```
-docker-compose up -d
-```
-
-3. Compile o projeto
+1. Compile o Projeto
 
 No terminal irá aparecer:
 
@@ -92,6 +72,33 @@ Se aparecer isso o seu banco de dados foi criado e também as suas colunas
 | **POST** | `/v1/users` | **Cria (Cadastra)** um novo item. | `{"nome": "...", "descricao": "..."}` |
 | **PUT** | `/v1/users/{id}` | **Atualiza** o item com o ID especificado. | `{"nome": "...", "descricao": "..."}` |
 | **DELETE** | `/v1/users/{id}` | **Exclui** o item com o ID especificado. | *(Nenhum)* |
+
+### 4 Docker
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="40" alt="docker logo"  />
+Motivos pelos quais eu tirei o Docker da minha aplicação :
+
+1. **Maior consumo de recursos:** Rodar MySQL dentro de um contêiner aumenta o uso de memória e CPU, o que pode causar lentidão em máquinas mais simples.
+
+2. **Configuração mais complexa:** Requer conhecimento de Docker, imagens, volumes e redes, tornando o ambiente mais difícil.
+
+3. **Dependência adicional para rodar o projeto:** O banco não sobe automaticamente com a aplicação, sendo necessário iniciar o contêiner manualmente (docker-compose up).
+
+4. **Possíveis problemas de compatibilidade no Windows:** Usuários de Windows podem enfrentar lentidão ou falhas devido ao Docker Desktop e ao WSL2.
+
+5. **Risco de perda de dados se os volumes não forem configurados corretamente:** Sem volumes persistentes, dados podem ser apagados ao reiniciar ou recriar o contêiner.
+
+6. **Manutenção e atualizações podem quebrar o ambiente:** Atualizar a imagem do MySQL ou recriar o contêiner pode causar incompatibilidades ou exigir nova configuração.
+
+Recomendaria fortemente para:
+
+1. **Ambiente padronizado e reproduzível:** Garante que todos utilizem a mesma versão e configuração do MySQL, eliminando problemas do tipo “funciona na minha máquina”.
+
+2. **Setup simples e rápido:** Com um único comando (docker-compose up), é possível subir o banco já configurado, sem necessidade de instalação manual do MySQL no sistema.
+
+3. **Isolamento completo do sistema operacional:** O banco roda em um contêiner separado, evitando conflitos com outras instalações e mantendo o ambiente mais organizado.
+
+4. **Fácil de resetar e recriar:** É possível derrubar e recriar o banco rapidamente, ideal para testes e desenvolvimento iterativo.
+
 
 ## References
 [Documentação - MySQL Data (Spring)](https://spring.io/guides/gs/accessing-data-mysql)
